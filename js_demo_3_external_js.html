@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Decision-Making Demo</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 650px;
+            margin: 40px auto;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 9px;
+            box-sizing: border-box;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .checkbox-group input {
+            width: auto;
+        }
+
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        #output {
+            margin-top: 25px;
+            padding: 20px;
+            border: 1px solid black;
+        }
+
+        .error {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Student Evaluation System</h1>
+
+    <div class="form-group">
+        <label for="studentName">Student Name:</label>
+        <input
+            type="text"
+            id="studentName"
+            placeholder="Enter student name"
+        >
+    </div>
+
+    <div class="form-group">
+        <label for="age">Age:</label>
+        <input
+            type="number"
+            id="age"
+            placeholder="Enter age"
+        >
+    </div>
+
+    <div class="form-group">
+        <label for="grade">Grade:</label>
+        <input
+            type="number"
+            id="grade"
+            min="0"
+            max="100"
+            placeholder="Enter grade from 0 to 100"
+        >
+    </div>
+
+    <div class="form-group">
+        <label for="program">Preferred Program:</label>
+
+        <select id="program">
+            <option value="">Select a program</option>
+            <option value="BSIT">BS Information Technology</option>
+            <option value="BSCS">BS Computer Science</option>
+            <option value="BSCPE">BS Computer Engineering</option>
+        </select>
+    </div>
+
+    <div class="form-group checkbox-group">
+        <input type="checkbox" id="requirements">
+        <label for="requirements">
+            Complete admission requirements
+        </label>
+    </div>
+
+    <button type="button" id="evaluateButton">
+        Evaluate Student
+    </button>
+
+    <div id="output">
+        Enter the required information.
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
