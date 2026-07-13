@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information</title>
+</head>
+<body>
+
+    <h1>Student Information</h1>
+
+    <script>
+        // Ask the user to enter student information
+        let name = prompt("Enter your name:");
+        let age = prompt("Enter your age:");
+        let course = prompt("Enter your course:");
+        let yearLevel = prompt("Enter your year level:");
+        let section = prompt("Enter your section:");
+        let school = prompt("Enter your school:");
+
+        // Display the student information in sentence form
+        document.write("Hello, " + name + ".<br>");
+        document.write("You are " + age + " years old.<br>");
+        document.write("You are taking " + course + ".<br>");
+        document.write("You are in " + yearLevel + ", section " + section + ".<br>");
+        document.write("You study at " + school + ".");
+    </script>
+
+</body>
+</html>
