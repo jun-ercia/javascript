@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Variables and Operators Demo</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 700px;
+            margin: 40px auto;
+        }
+
+        .form-group {
+            margin-bottom: 12px;
+        }
+
+        label {
+            display: inline-block;
+            width: 160px;
+        }
+
+        input {
+            width: 250px;
+            padding: 8px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+        }
+
+        #output {
+            margin-top: 25px;
+            padding: 20px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Student Grade Calculator</h1>
+
+    <div class="form-group">
+        <label for="studentName">Student Name:</label>
+        <input type="text" id="studentName">
+    </div>
+
+    <div class="form-group">
+        <label for="age">Age:</label>
+        <input type="number" id="age">
+    </div>
+
+    <div class="form-group">
+        <label for="prelim">Prelim Grade:</label>
+        <input type="number" id="prelim">
+    </div>
+
+    <div class="form-group">
+        <label for="midterm">Midterm Grade:</label>
+        <input type="number" id="midterm">
+    </div>
+
+    <div class="form-group">
+        <label for="finalGrade">Final Grade:</label>
+        <input type="number" id="finalGrade">
+    </div>
+
+    <button type="button" id="calculateButton">
+        Calculate Grade
+    </button>
+
+    <div id="output"></div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
