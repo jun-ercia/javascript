@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 12px;
+        }
+
+        label {
+            display: inline-block;
+            width: 100px;
+        }
+
+        input {
+            width: 300px;
+            padding: 8px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        #output {
+            margin-top: 25px;
+            padding: 15px;
+            border: 1px solid black;
+            width: 500px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Student Information</h1>
+
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="Enter your name">
+    </div>
+
+    <div class="form-group">
+        <label for="age">Age:</label>
+        <input type="number" id="age" placeholder="Enter your age">
+    </div>
+
+    <div class="form-group">
+        <label for="course">Course:</label>
+        <input type="text" id="course" placeholder="Enter your course">
+    </div>
+
+    <div class="form-group">
+        <label for="yearLevel">Year Level:</label>
+        <input type="text" id="yearLevel" placeholder="Enter your year level">
+    </div>
+
+    <div class="form-group">
+        <label for="section">Section:</label>
+        <input type="text" id="section" placeholder="Enter your section">
+    </div>
+
+    <div class="form-group">
+        <label for="school">School:</label>
+        <input type="text" id="school" placeholder="Enter your school">
+    </div>
+
+    <button type="button" onclick="displayInformation()">
+        Display Information
+    </button>
+
+    <div id="output"></div>
+
+    <script src="js_demo_1_external_js.js"></script>
+
+</body>
+</html>
