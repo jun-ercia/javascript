@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Grade Analyzer</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            background-color: #f4f6f8;
+            color: #222;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 30px auto;
+        }
+
+        h1,
+        h2 {
+            text-align: center;
+        }
+
+        .card {
+            background-color: white;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr auto;
+            gap: 15px;
+            align-items: end;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        input {
+            padding: 10px;
+            border: 1px solid #bbb;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 11px 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .add-button {
+            background-color: #1976d2;
+            color: white;
+        }
+
+        .clear-button {
+            background-color: #d32f2f;
+            color: white;
+            margin-top: 15px;
+        }
+
+        .delete-button {
+            background-color: #c62828;
+            color: white;
+            padding: 7px 12px;
+        }
+
+        .message {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .error {
+            display: block;
+            background-color: #ffebee;
+            color: #b71c1c;
+        }
+
+        .success {
+            display: block;
+            background-color: #e8f5e9;
+            color: #1b5e20;
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #263238;
+            color: white;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .passed {
+            color: #1b5e20;
+            font-weight: bold;
+        }
+
+        .failed {
+            color: #b71c1c;
+            font-weight: bold;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .summary-box {
+            background-color: #eceff1;
+            padding: 18px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .summary-box h3 {
+            margin: 0 0 8px;
+            font-size: 16px;
+        }
+
+        .summary-box p {
+            margin: 0;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .empty-message {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+        }
+
+        @media (max-width: 800px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .summary-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .summary-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Student Grade Analyzer</h1>
+
+        <div class="card">
+
+            <h2>Enter Student Information</h2>
+
+            <form id="studentForm">
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="studentName">Student Name</label>
+
+                        <input
+                            type="text"
+                            id="studentName"
+                            placeholder="Enter student name"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="studentGrade">Grade</label>
+
+                        <input
+                            type="number"
+                            id="studentGrade"
+                            placeholder="Enter grade from 0 to 100"
+                            min="0"
+                            max="100"
+                            step="0.01"
+                        >
+                    </div>
+
+                    <button type="submit" class="add-button">
+                        Add Student
+                    </button>
+
+                </div>
+
+            </form>
+
+            <div id="message" class="message"></div>
+
+        </div>
+
+        <div class="card">
+
+            <h2>Student Grade Report</h2>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Student Name</th>
+                            <th>Grade</th>
+                            <th>Remark</th>
+                            <th>Performance</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="studentTableBody"></tbody>
+
+                </table>
+
+                <div id="emptyMessage" class="empty-message">
+                    No student records have been added.
+                </div>
+
+            </div>
+
+            <button
+                type="button"
+                id="clearButton"
+                class="clear-button"
+            >
+                Clear All Records
+            </button>
+
+        </div>
+
+        <div class="card">
+
+            <h2>Class Summary</h2>
+
+            <div class="summary-grid">
+
+                <div class="summary-box">
+                    <h3>Total Students</h3>
+                    <p id="totalStudents">0</p>
+                </div>
+
+                <div class="summary-box">
+                    <h3>Passed</h3>
+                    <p id="passedStudents">0</p>
+                </div>
+
+                <div class="summary-box">
+                    <h3>Failed</h3>
+                    <p id="failedStudents">0</p>
+                </div>
+
+                <div class="summary-box">
+                    <h3>Class Average</h3>
+                    <p id="classAverage">0.00</p>
+                </div>
+
+                <div class="summary-box">
+                    <h3>Top Student</h3>
+                    <p id="topStudent">None</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="js_demo_4_external_js.js"></script>
+
+</body>
+</html>
