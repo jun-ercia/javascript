@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Store Purchase Calculator</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <h1>Store Purchase Calculator</h1>
+
+            <p>
+                A sample JavaScript application demonstrating
+                reusable functions.
+            </p>
+        </header>
+
+        <main>
+
+            <section class="card">
+
+                <h2>Purchase Information</h2>
+
+                <form id="purchaseForm">
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label for="customerName">
+                                Customer Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="customerName"
+                                placeholder="Enter customer name"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="productName">
+                                Product Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="productName"
+                                placeholder="Enter product name"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="unitPrice">
+                                Unit Price
+                            </label>
+
+                            <input
+                                type="number"
+                                id="unitPrice"
+                                placeholder="Enter unit price"
+                                min="0"
+                                step="0.01"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="quantity">
+                                Quantity
+                            </label>
+
+                            <input
+                                type="number"
+                                id="quantity"
+                                placeholder="Enter quantity"
+                                min="1"
+                                step="1"
+                            >
+                        </div>
+
+                    </div>
+
+                    <div class="button-group">
+
+                        <button
+                            type="submit"
+                            class="calculate-button"
+                        >
+                            Calculate Purchase
+                        </button>
+
+                        <button
+                            type="button"
+                            id="clearButton"
+                            class="clear-button"
+                        >
+                            Clear
+                        </button>
+
+                    </div>
+
+                </form>
+
+                <div id="message" class="message"></div>
+
+            </section>
+
+            <section class="card">
+
+                <h2>Purchase Summary</h2>
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Description</th>
+                                <th>Result</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="resultTableBody">
+
+                            <tr>
+                                <td>Customer Name</td>
+                                <td id="resultCustomer">—</td>
+                            </tr>
+
+                            <tr>
+                                <td>Product Name</td>
+                                <td id="resultProduct">—</td>
+                            </tr>
+
+                            <tr>
+                                <td>Unit Price</td>
+                                <td id="resultPrice">$0.00</td>
+                            </tr>
+
+                            <tr>
+                                <td>Quantity</td>
+                                <td id="resultQuantity">0</td>
+                            </tr>
+
+                            <tr>
+                                <td>Subtotal</td>
+                                <td id="resultSubtotal">$0.00</td>
+                            </tr>
+
+                            <tr>
+                                <td>Discount Rate</td>
+                                <td id="resultDiscountRate">0%</td>
+                            </tr>
+
+                            <tr>
+                                <td>Discount Amount</td>
+                                <td id="resultDiscount">$0.00</td>
+                            </tr>
+
+                            <tr>
+                                <td>Sales Tax</td>
+                                <td id="resultTax">$0.00</td>
+                            </tr>
+
+                            <tr class="total-row">
+                                <td>Final Total</td>
+                                <td id="resultTotal">$0.00</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
