@@ -1,0 +1,183 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    background-color: #f4f6f8;
+    color: #222222;
+}
+
+.container {
+    width: 92%;
+    max-width: 1000px;
+    margin: 30px auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+header h1 {
+    margin-bottom: 8px;
+    color: #17324d;
+}
+
+header p {
+    margin: 0;
+    color: #555555;
+}
+
+.card {
+    background-color: #ffffff;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+    margin-top: 0;
+    text-align: center;
+    color: #17324d;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 7px;
+    font-weight: bold;
+}
+
+input {
+    padding: 11px;
+    border: 1px solid #b7b7b7;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+input:focus {
+    outline: 2px solid #1976d2;
+    border-color: transparent;
+}
+
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+button {
+    border: none;
+    border-radius: 5px;
+    padding: 11px 18px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+.primary-button {
+    background-color: #1976d2;
+    color: #ffffff;
+}
+
+.secondary-button {
+    background-color: #616161;
+    color: #ffffff;
+}
+
+.message {
+    display: none;
+    margin-top: 18px;
+    padding: 12px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.success {
+    display: block;
+    background-color: #e8f5e9;
+    color: #1b5e20;
+    border: 1px solid #a5d6a7;
+}
+
+.error {
+    display: block;
+    background-color: #ffebee;
+    color: #b71c1c;
+    border: 1px solid #ef9a9a;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid #cccccc;
+    padding: 12px;
+}
+
+th {
+    background-color: #263238;
+    color: #ffffff;
+    text-align: left;
+}
+
+td:first-child {
+    width: 55%;
+    font-weight: bold;
+}
+
+td:last-child {
+    text-align: right;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+.net-pay-row {
+    background-color: #dcedc8 !important;
+    color: #1b5e20;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+@media (max-width: 650px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    .card {
+        padding: 18px;
+    }
+}
