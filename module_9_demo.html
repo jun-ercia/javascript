@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Module 9 Demo - Student Record Manager</title>
+
+    <link rel="stylesheet" href="module_9_demo.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <h1>Student Record Manager</h1>
+
+            <p>
+                Module 9 demonstration of JavaScript objects,
+                arrays of objects, destructuring, spread syntax,
+                object methods, and JSON.
+            </p>
+        </header>
+
+        <main>
+
+            <section class="card">
+
+                <h2>Student Information</h2>
+
+                <form id="studentForm">
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label for="studentId">
+                                Student ID
+                            </label>
+
+                            <input
+                                type="text"
+                                id="studentId"
+                                placeholder="Example: 2026-001"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="studentName">
+                                Student Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="studentName"
+                                placeholder="Enter student name"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="course">
+                                Course
+                            </label>
+
+                            <select id="course">
+
+                                <option value="">
+                                    Select course
+                                </option>
+
+                                <option value="BSCS">
+                                    BS Computer Science
+                                </option>
+
+                                <option value="BSIT">
+                                    BS Information Technology
+                                </option>
+
+                                <option value="BSAIS">
+                                    BS Accounting Information Systems
+                                </option>
+
+                                <option value="BSCPE">
+                                    BS Computer Engineering
+                                </option>
+
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="yearLevel">
+                                Year Level
+                            </label>
+
+                            <select id="yearLevel">
+
+                                <option value="">
+                                    Select year level
+                                </option>
+
+                                <option value="1">
+                                    First Year
+                                </option>
+
+                                <option value="2">
+                                    Second Year
+                                </option>
+
+                                <option value="3">
+                                    Third Year
+                                </option>
+
+                                <option value="4">
+                                    Fourth Year
+                                </option>
+
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="gpa">
+                                GPA
+                            </label>
+
+                            <input
+                                type="number"
+                                id="gpa"
+                                placeholder="Enter GPA from 1.00 to 5.00"
+                                min="1"
+                                max="5"
+                                step="0.01"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">
+                                Email Address
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="Enter email address"
+                            >
+                        </div>
+
+                    </div>
+
+                    <div class="button-group">
+
+                        <button
+                            type="submit"
+                            id="saveButton"
+                            class="primary-button"
+                        >
+                            Add Student
+                        </button>
+
+                        <button
+                            type="button"
+                            id="clearFormButton"
+                            class="secondary-button"
+                        >
+                            Clear Form
+                        </button>
+
+                    </div>
+
+                </form>
+
+                <div
+                    id="message"
+                    class="message"
+                ></div>
+
+            </section>
+
+            <section class="card">
+
+                <h2>Student Records</h2>
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Student ID</th>
+                                <th>Student Name</th>
+                                <th>Course</th>
+                                <th>Year Level</th>
+                                <th>GPA</th>
+                                <th>Academic Status</th>
+                                <th>Email</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="studentTableBody"></tbody>
+
+                    </table>
+
+                    <div
+                        id="emptyMessage"
+                        class="empty-message"
+                    >
+                        No student records are available.
+                    </div>
+
+                </div>
+
+                <div class="button-group">
+
+                    <button
+                        type="button"
+                        id="showObjectButton"
+                        class="info-button"
+                    >
+                        Show Object Details
+                    </button>
+
+                    <button
+                        type="button"
+                        id="exportJsonButton"
+                        class="success-button"
+                    >
+                        Export as JSON
+                    </button>
+
+                    <button
+                        type="button"
+                        id="clearAllButton"
+                        class="danger-button"
+                    >
+                        Clear All Records
+                    </button>
+
+                </div>
+
+            </section>
+
+            <section class="card">
+
+                <h2>Class Summary</h2>
+
+                <div class="summary-grid">
+
+                    <div class="summary-box">
+                        <h3>Total Students</h3>
+                        <p id="totalStudents">0</p>
+                    </div>
+
+                    <div class="summary-box">
+                        <h3>Average GPA</h3>
+                        <p id="averageGpa">0.00</p>
+                    </div>
+
+                    <div class="summary-box">
+                        <h3>Highest Academic GPA</h3>
+                        <p id="highestGpa">0.00</p>
+                    </div>
+
+                    <div class="summary-box">
+                        <h3>Top Student</h3>
+                        <p id="topStudent">None</p>
+                    </div>
+
+                    <div class="summary-box">
+                        <h3>Passing Students</h3>
+                        <p id="passingStudents">0</p>
+                    </div>
+
+                    <div class="summary-box">
+                        <h3>Students at Risk</h3>
+                        <p id="studentsAtRisk">0</p>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <section class="card">
+
+                <h2>Object and JSON Demonstration</h2>
+
+                <p>
+                    Select a student, then click
+                    <strong>Show Object Details</strong>
+                    to display the object's keys, values,
+                    entries, and JSON representation.
+                </p>
+
+                <pre id="objectOutput">No student is currently selected.</pre>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <script src="module_9_demo.js"></script>
+
+</body>
+</html>

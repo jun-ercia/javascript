@@ -1,0 +1,287 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    background-color: #f4f6f8;
+    color: #222222;
+}
+
+.container {
+    width: 95%;
+    max-width: 1400px;
+    margin: 30px auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+header h1 {
+    margin-bottom: 8px;
+    color: #17324d;
+}
+
+header p {
+    max-width: 850px;
+    margin: 0 auto;
+    color: #555555;
+    line-height: 1.5;
+}
+
+.card {
+    margin-bottom: 25px;
+    padding: 25px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+    margin-top: 0;
+    text-align: center;
+    color: #17324d;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 7px;
+    font-weight: bold;
+}
+
+input,
+select {
+    padding: 11px;
+    border: 1px solid #b7b7b7;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+input:focus,
+select:focus {
+    outline: 2px solid #1976d2;
+    border-color: transparent;
+}
+
+button {
+    padding: 11px 17px;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.primary-button {
+    background-color: #1976d2;
+    color: #ffffff;
+}
+
+.secondary-button {
+    background-color: #616161;
+    color: #ffffff;
+}
+
+.success-button {
+    background-color: #2e7d32;
+    color: #ffffff;
+}
+
+.info-button {
+    background-color: #0277bd;
+    color: #ffffff;
+}
+
+.danger-button {
+    background-color: #c62828;
+    color: #ffffff;
+}
+
+.select-button {
+    margin-right: 4px;
+    padding: 7px 10px;
+    background-color: #455a64;
+    color: #ffffff;
+}
+
+.edit-button {
+    margin-right: 4px;
+    padding: 7px 10px;
+    background-color: #ef6c00;
+    color: #ffffff;
+}
+
+.delete-button {
+    padding: 7px 10px;
+    background-color: #d32f2f;
+    color: #ffffff;
+}
+
+.message {
+    display: none;
+    margin-top: 18px;
+    padding: 12px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.success {
+    display: block;
+    background-color: #e8f5e9;
+    color: #1b5e20;
+    border: 1px solid #a5d6a7;
+}
+
+.error {
+    display: block;
+    background-color: #ffebee;
+    color: #b71c1c;
+    border: 1px solid #ef9a9a;
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    margin-top: 15px;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 11px;
+    border: 1px solid #cccccc;
+    text-align: center;
+    white-space: nowrap;
+}
+
+th {
+    background-color: #263238;
+    color: #ffffff;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+tbody tr:hover {
+    background-color: #e3f2fd;
+}
+
+.selected-row {
+    background-color: #fff9c4 !important;
+}
+
+.passed {
+    color: #2e7d32;
+    font-weight: bold;
+}
+
+.at-risk {
+    color: #c62828;
+    font-weight: bold;
+}
+
+.empty-message {
+    padding: 20px;
+    color: #666666;
+    text-align: center;
+}
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.summary-box {
+    padding: 18px;
+    background-color: #eef3f7;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.summary-box h3 {
+    margin: 0 0 8px;
+    font-size: 16px;
+}
+
+.summary-box p {
+    margin: 0;
+    color: #17324d;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+pre {
+    min-height: 130px;
+    padding: 20px;
+    overflow-x: auto;
+    background-color: #263238;
+    color: #f5f5f5;
+    border-radius: 8px;
+    line-height: 1.5;
+    white-space: pre-wrap;
+}
+
+@media (max-width: 950px) {
+    .form-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .summary-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .form-grid,
+    .summary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    .select-button,
+    .edit-button,
+    .delete-button {
+        width: auto;
+        margin: 2px;
+    }
+
+    .card {
+        padding: 18px;
+    }
+}
